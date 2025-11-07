@@ -19,7 +19,7 @@ def main():
     )
 
     limpar()
-    while True #o menu o usuário vai poder inserir dados da pessoa, dados da empresa, exibir todos os dados e sair do programa
+    while True:            
         print("1 - Inserir dados do usuário")
         print("2 - Inserir dados da empresa")
         print("3 - Exibir dados do usuário")
@@ -41,10 +41,14 @@ def main():
                 empresa.cnpj = input("Informe o CNPJ: ").strip()
                 empresa.email = input("Informe o email da empresa: ").strip().lower()
                 empresa.telefone = input("Informe o telefone da empresa: ").strip()
+                limpar()
+                continue
             case "3":
-                pass
+                usuario.exibir_dados()
+                continue                
             case "4":
-                pass
+                empresa.exibir_dados()
+                continue
             case "5":
                 print("Programa encerrado.")
                 break
