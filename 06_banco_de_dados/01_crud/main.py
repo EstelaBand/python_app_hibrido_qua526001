@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 from entidades import criar_tb_pessoa
-from modulo import limpar, cadastrar, listar, atualizar
+from modulo import limpar, cadastrar, listar, atualizar, deletar
 
 def main():
     # dentro de engine, passo o nome do banco dessa forma:
@@ -28,6 +28,7 @@ def main():
         print("1 - Cadastrar nova pessoa")
         print("2 - Listar pessoas")
         print("3 - Atualizar dados")
+        print("4 - Excluir pessoa")
         opcao = input("Opção desejada: ").strip()
         limpar()
         match opcao:
@@ -42,6 +43,9 @@ def main():
                 continue
             case "3":
                 print(atualizar(session, Pessoa))
+                continue
+            case "4":
+                print(deletar(session, Pessoa))
                 continue
             case _:
                 print("Opção inválida.")
